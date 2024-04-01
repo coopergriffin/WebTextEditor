@@ -60,7 +60,7 @@ module.exports = () => {
             {
               loader: 'file-loader',
               options: {
-                name: '[path][name].png',
+                name: '[path][name].[ext]',
                 
               },
             },
