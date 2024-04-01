@@ -27,7 +27,7 @@ module.exports = () => {
         crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
         icons: [
           {
-            src: path.resolve('src/images/icon.png'),
+            src: path.resolve('./src/images/icon.png'),
             sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
           },
         ],
@@ -53,19 +53,19 @@ module.exports = () => {
             },
           },
         },
-        {
+        /*{
           // Adding the file-loader for images
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
           use: [
             {
               loader: 'file-loader',
               options: {
-                name: '[path][name].png',
+                name: '[path].png',
                 
               },
             },
           ],
-        },
+        },*/
       ],
     },
   };
