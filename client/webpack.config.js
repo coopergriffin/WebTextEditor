@@ -53,6 +53,19 @@ module.exports = () => {
             },
           },
         },
+        {
+          // Adding the file-loader for images
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[path][name].png',
+                
+              },
+            },
+          ],
+        },
       ],
     },
   };
