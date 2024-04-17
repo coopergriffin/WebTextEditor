@@ -24,7 +24,7 @@ module.exports = () => {
         short_name: 'TextEditor',
         description: 'An online text editor.',
         background_color: '#ffffff',
-        crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+        crossorigin: 'use-credentials', // can be null, use-credentials or anonymous
         icons: [
           {
             src: path.resolve('./src/images/icon.png'),
@@ -50,6 +50,7 @@ module.exports = () => {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-proposal-object-rest-spread'],
             },
           },
         },
@@ -61,7 +62,6 @@ module.exports = () => {
               loader: 'file-loader',
               options: {
                 name: '[path][name].[ext]',
-                
               },
             },
           ],
