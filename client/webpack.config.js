@@ -16,8 +16,10 @@ module.exports = () => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './src/index.html',
-        title: 'Web Text Editor',
+        template: './src/index.html', // Path to your HTML file
+        filename: 'index.html', // Name of the output file
+        title: 'J.A.T.E', // Dynamically sets the title of the document
+        inject: true, // Controls asset injection
       }),
       new WebpackPwaManifest({
         name: 'Web Text Editor',
