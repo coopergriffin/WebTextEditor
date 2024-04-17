@@ -25,6 +25,67 @@ warmStrategyCache({
 });
 
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
+// Cache CSS files
+registerRoute(
+  // Match CSS files
+  ({request}) => request.destination === 'style',
+  // Use CacheFirst strategy
+  new CacheFirst({
 
-// TODO: Implement asset caching
-registerRoute();
+    cacheName: 'css-cache',
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+      new ExpirationPlugin({
+        maxEntries: 50,
+        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+      }),
+    ],
+  })
+);
+// Cache JavaScript files
+
+registerRoute(
+
+  // Match JavaScript files
+  ({request}) => request.destination === 'script',
+  // Use CacheFirst strategy
+  new CacheFirst({
+    cacheName: 'js-cache',
+    plugins: [
+
+      new CacheableResponsePlugin({
+
+        statuses: [0, 200],
+      }),
+      new ExpirationPlugin({
+        maxEntries: 50,
+        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+      }),
+    ],
+  })
+);
+
+// Cache images
+
+registerRoute(
+
+  // Match image files
+  ({request}) => request.destination === 'image',
+  // Use CacheFirst strategy
+  new CacheFirst({
+    cacheName: 'image-cache',
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+
+      new ExpirationPlugin({
+
+        maxEntries: 50,
+        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+      }),
+    ],
+  })
+);
