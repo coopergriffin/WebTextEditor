@@ -49,4 +49,5 @@ export const getDb = async () => {
   console.log('Data retrieved from the database', result);
   return result?.[0]?.value; // Assuming you want to return the value of the first (or only) record
 };
+
 initdb();
